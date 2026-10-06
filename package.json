@@ -1,0 +1,22 @@
+{
+  "name": "food-delivery-platform",
+  "version": "1.0.0",
+  "description": "Full-Stack Gourmet Food Delivery Platform with Real-Time Socket.io Tracking",
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "start": "node server/server.js",
+    "seed": "node -e \"require('dotenv').config({path:'./server/.env'}); const mongoose = require('./server/node_modules/mongoose'); const { seedDatabase } = require('./server/controllers/seedController'); mongoose.connect(process.env.MONGODB_URI).then(async () => { const req = {}; const res = { json: (d) => { console.log('Database seeded successfully:', d); process.exit(0); }, status: () => res }; await seedDatabase(req, res); }).catch(e => { console.error(e); process.exit(1); })\"",
+    "build:client": "npm run build --prefix client"
+  },
+  "keywords": [
+    "food-delivery",
+    "mern",
+    "socket.io",
+    "real-time-tracking",
+    "react",
+    "redux-toolkit"
+  ],
+  "author": "",
+  "license": "MIT"
+}
